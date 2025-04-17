@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+:root {
+
+  /* Font Family */
+  --font-sans: 'Work_Sans', sans-serif;
+
+  /* Primary */
+  --color-primary-background: #e6f2f4;
+  --color-primary-light: #85bec5;
+  --color-primary-main: #038191;
+  --color-primary-dark: #05515a;
+
+  /* Secondary */
+  --color-secondary-background: #eceef4;
+  --color-secondary-light: #9ba6c4;
+  --color-secondary-main: #425994;
+  --color-secondary-dark: #2d3d66;
+
+  /* Tertiary */
+  --color-tertiary-background: #dee4e8;
+  --color-tertiary-light: #698da2;
+  --color-tertiary-main: #0b486b;
+  --color-tertiary-dark: #002140;
+
+  /* Disabled */
+  --color-disabled-background: #e6e6e6;
+  --color-disabled-light: #cccccc;
+  --color-disabled-main: #999999;
+  --color-disabled-dark: #666666;
+
+  /* Gray */
+  --color-gray-000: #ffffff;
+  --color-gray-025: #f9f9f9;
+  --color-gray-050: #f2f2f2;
+  --color-gray-100: #e6e6e6;
+  --color-gray-200: #cccccc;
+  --color-gray-400: #999999;
+  --color-gray-600: #666666;
+  --color-gray-800: #333333;
+  --color-gray-1000: #000000;
+
+  /* Neutral */
+  --color-neutral-50: #f8fafc;
+  --color-neutral-100: #f1f5f9;
+  --color-neutral-200: #e2e8f0;
+  --color-neutral-300: #cbd5e1;
+  --color-neutral-400: #94a3b8;
+  --color-neutral-500: #64748b;
+  --color-neutral-600: #475569;
+  --color-neutral-800: #1e293b;
+  --color-neutral-1000: #0f151e;
+
+  /* Error */
+  --color-error-background: #f8d7da;
+  --color-error-light: #ff6b70;
+  --color-error-main: #dc3545;
+  --color-error-dark: #a3001e;
+
+  /* Success */
+  --color-success-background: #d1e7da;
+  --color-success-light: #52b671;
+  --color-success-main: #178545;
+  --color-success-dark: #00571c;
+
+  /* Info */
+  --color-info-background: #dae1f1;
+  --color-info-light: #7998eb;
+  --color-info-main: #446ab8;
+  --color-info-dark: #004088;
+
+  /* Warning - Amber */
+  --color-warning-background: #fff3cd;
+  --color-warning-light: #fff350;
+  --color-warning-main: #ffc107;
+  --color-warning-dark: #946900;
+
+  /* Typography Dark */
+  --color-typo-dark-primary: #475569;
+  --color-typo-dark-secondary: #038191;
+  --color-typo-dark-tertiary: #1e293b;
+  --color-typo-dark-quaternary: #425994;
+
+  /* Typography Light */
+  --color-typo-light-primary: #ffffff;
+  --color-typo-light-secondary: #e2e8f0;
+
+  /* Container */
+  --color-container-light: #ffffff;
+  --color-container-dark: #f1f5f9;
+
+  /* Cards */
+  --color-card-light-primary: #ffffff;
+  --color-card-dark-secondary: #038191;
+
+  /* Divider Dark */
+  --color-divider-dark-primary: #E2E8F0;
+  --color-divider-dark-secondary: #CBD5E1;
+  --color-divider-dark-tertiary: #64748B;
+  --color-divider-dark-quaternary: #038191;
+
+  /* Divider Light */
+  --color-divider-light-primary: #ffffff;
+  --color-divider-light-secondary: #f1f5f9;
+
+  /* Background */
+  --color-background: #f1f5f9;
+
+  /* Shadows */
+  --shadow-xs: 0px 2px 4px 1px rgba(0, 0, 0, 0.04);
+  --shadow-sm: 0px 4px 8px 1px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0px 6px 12px 1px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0px 8px 16px 1px rgba(0, 0, 0, 0.16);
+  --shadow-xl: 0px 10px 20px 1px rgba(0, 0, 0, 0.16);
+
+  /* Radius */
+  --radius-sm: 0.125rem;
+  --radius-md: 0.25rem;
+  --radius-lg: 0.375rem;
+  --radius-xl: 0.5rem;
+}
