@@ -1,12 +1,13 @@
 {
-    "private": true,
-    "scripts": {
-      "build": "turbo run build",
-      "dev": "turbo run dev",
-      "lint": "turbo run lint"
-    },
-    "devDependencies": {
-      "turbo": "latest"
-    },
-    "packageManager": "pnpm@9.0.0"
-  }
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "setup": "node scripts/setup.js"
+  },
+  "devDependencies": {
+    "turbo": "latest"
+  },
+  "packageManager": "pnpm@9.0.0"
+}
