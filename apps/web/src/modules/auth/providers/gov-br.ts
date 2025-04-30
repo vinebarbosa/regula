@@ -1,6 +1,6 @@
 import { env } from "@/env";
 import { signIn } from "@/modules/http/routes/sign-in";
-import { OAuth2Config, OAuthUserConfig } from "next-auth/providers";
+import { OAuthConfig, OAuthUserConfig } from "next-auth/providers/oauth";
 
 interface Profile {
   id: string;
@@ -15,7 +15,7 @@ interface Profile {
   }
 }
 
-export const GovBr = <P extends Profile>(options: OAuthUserConfig<P>): OAuth2Config<P> => ({
+export const GovBr = <P extends Profile>(options: OAuthUserConfig<P>): OAuthConfig<P> => ({
   id: 'gov-br',
   name: 'Gov.BR',
   type: 'oauth',
@@ -24,7 +24,7 @@ export const GovBr = <P extends Profile>(options: OAuthUserConfig<P>): OAuth2Con
     params: {
       scope: 'openid+email+profile+phone+govbr_confiabilidades',
       client_id: env.AUTH_GOVBR_CLIENT_ID,
-      redirect_uri: env.NEXT_PUBLIC_APP_URL,
+      redirect_uri: env.NEXT_PUBLIC_APP_URL + '/api/auth/callback/gov-br',
       response_type: 'code'
     }
   },
@@ -33,7 +33,7 @@ export const GovBr = <P extends Profile>(options: OAuthUserConfig<P>): OAuth2Con
     async request(context: any) {
       const { tokens } = await signIn({
         code: context.params.code,
-        redirectUrl: env.NEXT_PUBLIC_APP_URL
+        redirectUrl: env.NEXT_PUBLIC_APP_URL + '/api/auth/callback/gov-br'
       })
       return {
         tokens
