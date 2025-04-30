@@ -46,7 +46,7 @@ function checkDependencies() {
 
 
 function updateHostsFile() {
-  const hostname = 'local.regula.lais.ufrn.br';
+  const hostname = 'local.homologacao.regulav2.lais.ufrn.br';
   const hostsPath =
     os.platform() === 'win32'
       ? 'C:\\Windows\\System32\\drivers\\etc\\hosts'

@@ -1,18 +1,22 @@
-import NextAuth from "next-auth"
-import { GovBr } from "./providers/gov-br"
+import { AuthOptions } from 'next-auth';
 
-export const { handlers, signIn, signOut, auth } = NextAuth({
-  providers: [GovBr],
+import { decodeJwt } from 'jose';
+
+import { GovBr } from './providers/gov-br';
+import { env } from '@/env';
+
+
+export const authOptions: AuthOptions = {
+  providers: [
+    GovBr({
+      clientId: env.AUTH_GOVBR_CLIENT_ID,
+      clientSecret: ''
+    })
+  ],
   pages: {
     signIn: '/'
   },
   session: {
     strategy: 'jwt'
-  },
-  callbacks: {
-    authorized: async ({ auth }) => {
-      // Logged in users are authenticated, otherwise redirect to login page
-      return !!auth
-    },
   }
-})
+};

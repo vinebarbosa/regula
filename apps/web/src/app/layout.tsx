@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 
 import { font } from "@/packages/mt/theme/font";
 import { PropsWithChildren } from "react";
+import { Providers } from "@/modules/shared/components/providers";
 
 export const metadata: Metadata = {
   title: "Regula MT",
@@ -14,7 +15,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="pt-BR">
-      <body className={font.className}>{children}</body>
+      <body className={font.className}>
+        <Providers>
+          {children}
+        </Providers>
+      </body>
     </html>
   );
 }
