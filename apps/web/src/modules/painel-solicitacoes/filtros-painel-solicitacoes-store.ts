@@ -1,25 +1,42 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
-interface FiltrosPainelSolicitacaoState {
-  procedimento: { value: number; label: string } | null;
-  subGrupo: { value: number; label: string } | null;
-  limparfiltros: () => void;
+interface Option {
+  value: number;
+  label: string;
 }
 
-const filtrosPainelStoreDefaultValues = {
-  procedimento: null,
-  subGrupo: null
-} as FiltrosPainelSolicitacaoState
+interface FiltrosPainelSolicitacaoState {
+  procedimento: Option | null;
+  subGrupo: Option | null;
+  dataInicio: string | null;
+}
 
-export const filtrosPainelStore = create<FiltrosPainelSolicitacaoState>()(
+interface FiltrosPainelSolicitacaoStore extends FiltrosPainelSolicitacaoState {
+  clear: () => void;
+  set: <K extends keyof FiltrosPainelSolicitacaoState>(
+    key: K,
+    value: FiltrosPainelSolicitacaoState[K]
+  ) => void;
+  reset: (key: keyof FiltrosPainelSolicitacaoState) => void;
+}
+
+const filtrosPainelStoreDefaultValues: FiltrosPainelSolicitacaoState = {
+  procedimento: null,
+  subGrupo: null,
+  dataInicio: null
+};
+
+export const filtrosPainelStore = create<FiltrosPainelSolicitacaoStore>()(
   persist(
     (set) => ({
       ...filtrosPainelStoreDefaultValues,
-      limparfiltros: () => set(() => ({ ...filtrosPainelStoreDefaultValues }))
+      clear: () => set((state) => ({ ...state, ...filtrosPainelStoreDefaultValues })),
+      set: (key, value) => set((state) => ({ ...state, [key]: value })),
+      reset: (key) => set((state) => ({ ...state, [key]: filtrosPainelStoreDefaultValues[key] }))
     }),
     {
-      name: "filtros-painel-solicitacoes-storage"
+      name: 'filtros-painel-solicitacoes-storage'
     }
   )
 );

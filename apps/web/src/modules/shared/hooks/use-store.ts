@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
 
-export const useStore = <T, F>(
+export const useStore = <T>(
   store: (callback: (state: T) => unknown) => unknown,
-  callback: (state: T) => F
 ) => {
-  const result = store(callback) as F;
-  const [data, setData] = useState<F>();
+  const result = store((state) => state) as T
+  const [data, setData] = useState<T>();
 
   useEffect(() => {
     setData(result);
